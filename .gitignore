@@ -1,3 +1,10 @@
+log
+model/
+dataImageNet100/train
+dataImageNet100/val
+dataImageNet1000/train
+dataImageNet1000/val
+__init__.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
