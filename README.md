@@ -25,9 +25,9 @@ In the latest repo, the most similar implementaion is:
 ```
 https://github.com/tensorflow/models/blob/master/official/r1/resnet/imagenet_main.py
 ```
-Unfortunately, We were not able to run our code with the latest tensorflow-2.0 or tensorflow-1.14. 
+Unfortunately, we were not able to run our code with the latest tensorflow-2.0 or tensorflow-1.14. 
 
-We understand that how important it is to reproduce the results of published papers. I find a compatible tensorflow-1.5 version that is able to run the code with my current CUDA settings. To not mess up with current enviroment for pytorch mostly, I use the virtualenv to set up a seperate environment for running experiments. The dependency of the code is lite and should be able work in most environment if you get the tensorflow version set up correctly. I summarize my current environment for reference.  
+We understand that how important it is to reproduce the results of published papers. I find a compatible tensorflow-1.5 version that is able to run the code with my current CUDA settings. To not mess up with my current software enviroment for pytorch mostly, I use the virtualenv to set up a seperate environment for experiments. The dependency of the code is lite and should be able work in most cases if you get the tensorflow version set up correctly. I summarize my current environment for reference.  
 
 
 System Information<br/>
@@ -88,7 +88,7 @@ CUDA_VISIBLE_DEVICES=0 python imagenet_main.py 1>log 2>&1
 ## Results
 We run the code once and report the result here. Top-5 accuracy is reported on ImageNet dataset. We observe similar results on ImageNet-100 form this repo with new environment and what we reported in paper. On ImageNet-1000, we notice some performance drop in several first increments but the final results are even better than what we reported in our paper, which might be caused by different operation systems and software environments. 
 
-Training on ImageNet-100 take around 15 hours. Results are:
+Training on ImageNet-100 takes around 15 hours. Results are:
 
 |           | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100 |
 |----------|---:|---:|---:|---:|---:|---:|---:|---:|---:|----:|
@@ -102,7 +102,7 @@ Training on ImageNet-100 take around 15 hours. Results are:
 | Test Samples | 500 | 1000 | 1500 | 2000 | 2500 | 3000 | 3500 | 4000 | 4500 | 5000|
 
 
-Training on ImageNet-100 take around 100 hours. Results are:
+Training on ImageNet-100 takes around 100 hours. Results are:
 
 |           | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000 |
 |----------|---:|---:|---:|---:|---:|---:|---:|---:|---:|----:|
@@ -123,7 +123,7 @@ Results are from one run of the model on ImageNet-100 and ImageNet-1000. Log fil
 
 ## Implementation notes
 Class Order:<br/>
-To keep the same order with iCaRL (https://github.com/srebuffi/iCaRL), we used the same random seed (1993) from numpy to generate the order. 
+To keep the same order with iCaRL (https://github.com/srebuffi/iCaRL), we use the same random seed (1993) from numpy to generate the order. 
 
 Distilling Loss:<br/>
 We store the previous network for distilling loss. 
@@ -133,6 +133,9 @@ After learning the Bias Correction parameters (\beta and \gamma), classifier aft
 
 Validation Samples from exemplars:<br/>
 10\% selection is limited on exemplars (old classes). Samples from new classes will match the same number of validation samples. 
+
+## Useful links
+Awesome-Incremental-Learning: https://github.com/xialeiliu/Awesome-Incremental-Learning
 
 ## Contact
 If you found any issue of the code, please contact Yue Wu ([@wuyuebupt](http://github.com/wuyuebupt), Email: yuewu@ece.neu.edu or wuyuebupt@gmail.com)
